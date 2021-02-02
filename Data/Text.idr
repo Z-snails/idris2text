@@ -215,7 +215,7 @@ See Data.Text.Builder for a more efficient interface
 ||| O(1) return `Text` containing single `Char`
 export
 singleton : Char -> Text
-singleton char = fromString $ prim__strCons char ""
+singleton = fromString . cast
 
 ||| O(n) Add a `Char` to the front of a `Text`
 export
