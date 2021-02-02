@@ -9,7 +9,7 @@ import Data.String
 mergeLength : Int
 mergeLength = 256
 
-||| Useful for efficiently building `Text`s
+||| Useful for efficiently building `Text`s or `String`s
 export
 data Builder : Type where
     Nil : Builder
