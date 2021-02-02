@@ -23,6 +23,14 @@ export
 FromString Text where
     fromString = makeText
 
+export
+Cast String Text where
+    cast = fromString
+
+export
+Cast Text String where
+    cast = toString
+
 {-
 =============
 Querying Text
