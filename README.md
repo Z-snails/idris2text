@@ -1,6 +1,7 @@
 # idris2text
-Wrapper around primitive String, with added functionality
-Heavily inspired by Haskell's text package
+Wrapper around primitive String, with additional functionality
+
+Inspired by Haskell's text package
 
 ## Performance
 `Text` is never asymtopically slower than `String` however it may in some circumstances be slower
