@@ -11,4 +11,5 @@ Heavily inspired by Haskell's text package
 
 ## Internals
 Internally `Text` stores an offset into the `String`, the length of the `Text` and the primitive `String`
+
 `String` uses UTF-32 encoding, which allows for `O(1)` indexing
