@@ -29,14 +29,19 @@ export
 fromText : Text -> Builder
 fromText t = Cons t Nil
 
-||| O(n) convert a `Builder` to a `Text`
+||| O(n) convert a `Builder` to a `String`
 export
-toText : Builder -> Text
-toText = makeText . fastConcat . toStringList
+toString : Builder -> String
+toString = fastConcat . toStringList
     where
         toStringList : Builder -> List String
         toStringList Nil = []
         toStringList (Cons head tail) = getString head :: toStringList tail
+
+||| O(n) convert a `Builder` to a `Text`
+export
+toText : Builder -> Text
+toText = makeText . toString
 
 ||| O(1) single `Char`
 export
