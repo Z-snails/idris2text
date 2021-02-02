@@ -1,0 +1,4 @@
+package text
+
+modules = Data.Text
+        , Data.Text.Builder
