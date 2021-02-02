@@ -8,3 +8,7 @@ Heavily inspired by Haskell's text package
 
 ## Builder
 `Builder` is designed for faster construction of `Text` or `String` by using a linked list of small chunks of `Text`
+
+## Internals
+Internally `Text` stores an offset into the `String`, the length of the `Text` and the primitive `String`
+`String` uses UTF-32 encoding, which allows for `O(1)` indexing
