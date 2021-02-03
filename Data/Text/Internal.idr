@@ -5,8 +5,8 @@ module Data.Text.Internal
 public export
 record Text where
     constructor MkText
-    off : Int -- offset from start of `str` (0 indexed)
-    len : Int -- length of `Text`
+    off : Int -- offset from start of 'str' (0 indexed)
+    len : Int -- length of 'Text'
     str : String -- UTF-32 primitive String
 
 ||| convert a Text to a String (eg for IO output)
@@ -25,7 +25,7 @@ makeText str = MkText
     , str
     }
 
-||| O(1) get the character at the (zero based) index `index` of `Text`
+||| O(1) get the character at the (zero based) index 'index' of 'Text'
 ||| unsafe because it doesn't check if ind < 0
 export
 unsafeIndex : Text -> (index : Int) -> Maybe Char
@@ -34,8 +34,8 @@ unsafeIndex (MkText{off, len, str}) ind =
         then Nothing
         else Just (assert_total $ prim__strIndex str (off + ind))
 
-||| O(n) copy a `Text` unlinking it from the orignal potentially
-||| larger (in memory) `Text`
+||| O(n) copy a 'Text' unlinking it from the orignal potentially
+||| larger (in memory) 'Text'
 ||| use this if the Text will stay in memory for a while to reduce memory use
 export
 copy : Text -> Text

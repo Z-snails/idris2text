@@ -3,13 +3,13 @@ module Data.Text.Builder
 import Data.Text.Internal
 import Data.String
 
-||| Constant used by operation like `<+>`
-||| Maximum length of `Text` for `Text`s to be merged
+||| Constant used by operation like '<+>'
+||| Maximum length of 'Text' for 'Text's to be merged
 -- Note: this hasn't yet been optimised
 mergeLength : Int
 mergeLength = 256
 
-||| Useful for efficiently building `Text`s or `String`s
+||| Useful for efficiently building 'Text's or 'String's
 export
 data Builder : Type where
     Nil : Builder
@@ -24,12 +24,12 @@ Semigroup Builder where
             else Cons last (Cons first tail)
     Cons head tail <+> t = Cons head (tail <+> t)
 
-||| O(1) convert a `Text` to a `Builder`
+||| O(1) convert a 'Text' to a 'Builder'
 export
 fromText : Text -> Builder
 fromText t = Cons t Nil
 
-||| O(n) convert a `Builder` to a `String`
+||| O(n) convert a 'Builder' to a 'String'
 export
 toString : Builder -> String
 toString = fastConcat . toStringList
@@ -38,12 +38,12 @@ toString = fastConcat . toStringList
         toStringList Nil = []
         toStringList (Cons head tail) = getString head :: toStringList tail
 
-||| O(n) convert a `Builder` to a `Text`
+||| O(n) convert a 'Builder' to a 'Text'
 export
 toText : Builder -> Text
 toText = makeText . toString
 
-||| O(1) single `Char`
+||| O(1) single 'Char'
 export
 singleton : Char -> Builder
 singleton = fromText . makeText . singleton
