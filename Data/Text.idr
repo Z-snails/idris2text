@@ -39,8 +39,8 @@ Querying Text
 
 ||| O(1) get the length of 'Text'
 export
-length : Text -> Int
-length text = text.len
+length : Text -> Nat
+length text = fromInteger $ cast $ text.len
 
 ||| O(1) get the 'Char' at 'ind'
 export
