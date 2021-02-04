@@ -1,4 +1,5 @@
 package text
 
 modules = Data.Text
+        , Data.Text.Internal
         , Data.Text.Builder
